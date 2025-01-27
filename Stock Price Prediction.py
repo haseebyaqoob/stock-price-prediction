@@ -1,20 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[3]:
-
-
-
-
-
-# In[4]:
-
-
 get_ipython().system('pip install pandas_datareader')
-
-
-# In[ ]:
-
 
 import numpy as np 
 import pandas as pd
@@ -23,20 +7,14 @@ import pandas_datareader as data
 
 start="2010-01-01" end="2019-12-31" 
 df=data.DataReader('AAPL','yahoo',start,end)
+
 df.head()
+
 df.tail()
+
 df=df.reset_index()
+
 df.head()
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
 
 df=df.drop(["Date","Adj Close"],axis=1)
 df.head() plt.plot(df.Close) 
@@ -57,7 +35,6 @@ plt.plot(ma100,"r")
 plt.plot(ma200,"g") df.shape 
 
 
-# In[ ]:
 
 
 data_training=pd.DataFrame(df["Close"][0:int(len(df)*0.70)])
@@ -76,10 +53,8 @@ x_train,y_train=np.array(x_train),np.array(y_train) x_train.shape
 
 
 
-# In[ ]:
 
 
-#ML LSTM MODEL
 from keras.layers import Dense,Dropout, LSTM from
 keras.models import Sequential model=Sequential()
 model.add(LSTM(units=50,activation="relu",return_sequences=
